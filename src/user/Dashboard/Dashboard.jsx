@@ -51,7 +51,7 @@ const Dashboard = () => {
         <Layout
             title="Dashboard"
             description={`Welcome, ${name}!`}
-            className="container"
+            className="container-fluid"
         >
             <div className="row">
                 <div className="col-3">{userLinks()}</div>
