@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '../../corePages/Layout';
 import { isAuthenticated } from '../../auth/index'
-import { Link } from 'react-router-dom';
+import { link, Link } from 'react-router-dom';
 
 const Dashboard = () => {
     const { user: { _id, name, email, role } } = isAuthenticated();
