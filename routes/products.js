@@ -6,6 +6,7 @@ const { userById } = require('../controllers/users');
 
 router.get('/', prodCtrl.getAll);
 router.get('/:productId', prodCtrl.getOne);
+router.get('/related/:productId', prodCtrl.getRelated);
 
 
 router.post(
