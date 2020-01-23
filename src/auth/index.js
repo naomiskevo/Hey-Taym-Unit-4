@@ -50,3 +50,17 @@ export const isAuthenticated = () => {
         return false;
     }
 };
+
+export const logout = next => {
+    if (typeof window !== 'undefined') {
+        localStorage.removeItem('jwt');
+        next();
+        return fetch(BASE_URL + 'logout', {
+            method: 'GET'
+        })
+            .then(response => {
+                console.log('logout', response);
+            })
+            .catch(err => console.log(err));
+    }
+};
