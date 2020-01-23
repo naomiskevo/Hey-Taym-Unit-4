@@ -7,6 +7,7 @@ import PrivateRoute from './auth/PrivateRoute.jsx';
 import Dashboard from './user/Dashboard/Dashboard';
 import AdminRoute from './auth/AdminRoute';
 import AdminDashboard from './user/AdminDashboard/AdminDashboard';
+import AddCategory from './admin/AddCategory';
 
 
 
@@ -25,6 +26,10 @@ const App = () => {
         <AdminRoute
           exact path="/admin/dashboard"
           component={AdminDashboard}
+        />
+        <AdminRoute
+          exact path="/create/category"
+          component={AddCategory}
         />
       </Switch>
 
