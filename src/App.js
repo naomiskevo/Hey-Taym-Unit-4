@@ -3,7 +3,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import Signup from './user/Signup/SignupPage'
 import Login from './user/Login/LoginPage'
 import Home from './corePages/HomePage'
-import PrivateRoute from './auth/PrivateRoute'
+import PrivateRoute from './auth/AdminRoute'
 import Dashboard from './user/Dashboard/Dashboard'
 
 
