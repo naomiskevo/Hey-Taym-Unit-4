@@ -4,6 +4,7 @@ const catCtrl = require('../controllers/categories');
 const { requireLogin, isAdmin, isAuth } = require('../controllers/auth');
 const { userById } = require('../controllers/users');
 
+router.get('/:categoryId', catCtrl.getOne);
 
 router.post(
     '/create/:userId',
@@ -14,7 +15,7 @@ router.post(
 );
 
 
-
+router.param('categoryId', catCtrl.categoryById)
 router.param('userId', userById);
 
 
