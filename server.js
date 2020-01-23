@@ -26,10 +26,12 @@ app.use(express.static(path.join(__dirname, 'build')));
 const authRoutes = require('./routes/auth')
 const userRoutes = require('./routes/users')
 const categoryRoutes = require('./routes/categories')
+const productRoutes = require('./routes/products')
 // Put API routes here, before the "catch all" route
 
 app.use('/api/users', authRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/products', productRoutes);
 app.use('/api/categories', categoryRoutes);
 
 // The following "catch all" route (note the *)is necessary
