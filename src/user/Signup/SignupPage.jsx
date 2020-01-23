@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Layout from '../../corePages/Layout'
 import {Link} from 'react-router-dom'
+import {signup}  from '../../auth/index'
 
 
 const Signup = () => {
@@ -13,7 +14,6 @@ const Signup = () => {
 
     })
 
-    const BASE_URL = '/api/users/'
     const { name, email, password, success, error } = values
 
     const handleChange = name => event => {
@@ -22,7 +22,7 @@ const Signup = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        setValues({...values, error: false})
+        setValues({...values, error: false});
         signup({ name, email, password })
             .then(data => {
                 if (data.error) {
@@ -41,24 +41,7 @@ const Signup = () => {
 
     }
 
-    const signup = user => {
-        // console.log(name, email, password);
-        return fetch(BASE_URL + 'signup', {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(user)
 
-        })
-            .then(response => {
-                return response.json();
-            })
-            .catch(err => {
-                console.log(err);
-            });
-    };
 
 
     const signUpForm = () => (
