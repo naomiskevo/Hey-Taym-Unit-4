@@ -1,18 +1,13 @@
 const User = require('../models/user');
 const { errorHandler } = require("../helpers/dbErrorHandler");
 const jwt = require('jsonwebtoken');
-const espressJwt = require('express-jwt');
+const expressJwt = require('express-jwt');
 
 
-module.exports = {
-    signup,
-    login,
-    logout
-}
 
 function logout(req, res) {
     res.clearCookie('t')
-    res.json({message: 'Logged Out!'})
+    res.json({ message: 'Logged Out!' })
 }
 
 function signup(req, res) {
@@ -42,11 +37,11 @@ function login(req, res) {
             });
         }
         //creat auth method in user model
-            if (!user.authenticate(password)){
-                return res.status(401).json({
-                    err: 'Email and password do not match'
-                })
-            }
+        if (!user.authenticate(password)) {
+            return res.status(401).json({
+                err: 'Email and password do not match'
+            })
+        }
         //generate a token with user id
         const token = jwt.sign({ _id: user._id }, process.env.SECRET)
         res.cookie('t', token, { expire: new Date() + 9999 })
@@ -54,3 +49,16 @@ function login(req, res) {
         return res.json({ token, user: { _id, email, name, role } })
     });
 };
+
+const requireLogin = expressJwt({
+    secret: process.env.SECRET,
+    userProperty: 'auth'
+});
+
+
+module.exports = {
+    signup,
+    login,
+    logout,
+    requireLogin
+}
