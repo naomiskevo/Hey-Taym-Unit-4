@@ -24,9 +24,11 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 
 const authRoutes = require('./routes/auth')
+const userRoutes = require('./routes/users')
 // Put API routes here, before the "catch all" route
 
 app.use('/api/users', authRoutes);
+app.use('/api/users', userRoutes);
 
 // The following "catch all" route (note the *)is necessary
 // for a SPA's client-side routing to properly work
