@@ -4,7 +4,50 @@ const { errorHandler } = require("../helpers/dbErrorHandler");
 module.exports = {
     create,
     categoryById,
-    getOne
+    getOne,
+    getAll,
+    update,
+    deleteOne
+}
+
+function deleteOne (req, res) {
+    const category = req.category
+    category.remove((err) => {
+        if (err) {
+            return res.status(400).json({
+                err: errorHandler(err)
+            });
+        }
+        res.json({
+            message: 'Category has been deleted'
+        });
+    });
+
+};
+
+function update (req, res) {
+    const category = req.category
+    category.name = req.body.name
+    category.save((err, data) => {
+        if (err) {
+            return res.status(400).json({
+                err: errorHandler(err)
+            });
+        }
+        res.json(data);
+    });
+
+};
+
+function getAll (req, res) {
+    Category.find().exec((err, data) => {
+        if(err) {
+            return res.status(400).json({
+                err: errorHandler(err)
+            });
+        }
+        res.json(data);
+    })
 }
 
 function getOne(req, res) {

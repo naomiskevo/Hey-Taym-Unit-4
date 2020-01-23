@@ -5,6 +5,7 @@ const { requireLogin, isAdmin, isAuth } = require('../controllers/auth');
 const { userById } = require('../controllers/users');
 
 router.get('/:categoryId', catCtrl.getOne);
+router.get('/', catCtrl.getAll);
 
 router.post(
     '/create/:userId',
@@ -12,6 +13,22 @@ router.post(
     isAuth,
     isAdmin,
     catCtrl.create
+);
+
+router.put(
+    '/:categoryId/:userId',
+    requireLogin,
+    isAuth,
+    isAdmin,
+    catCtrl.update
+);
+
+router.delete(
+    '/:categoryId/:userId',
+    requireLogin,
+    isAuth,
+    isAdmin,
+    catCtrl.deleteOne
 );
 
 
