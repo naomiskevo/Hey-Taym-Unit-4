@@ -6,7 +6,26 @@ const { errorHandler } = require("../helpers/dbErrorHandler");
 
 module.exports = {
     create,
+    productById,
+    getOne,
 }
+
+function getOne(req, res) {
+    req.product.photo = undefined
+    return res.json(req.product);
+}
+
+function productById(req, res, next, id) {
+    Product.findById(id).exec((err, product) => {
+        if (err || !product) {
+            return res.status(400).json({
+                err: 'Product not found'
+            });
+        }
+        req.product = product
+        next();
+    });
+};
 
 function create(req, res) {
     let form = new formidable.IncomingForm()

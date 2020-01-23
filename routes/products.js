@@ -4,7 +4,7 @@ const prodCtrl = require('../controllers/products');
 const { requireLogin, isAdmin, isAuth } = require('../controllers/auth');
 const { userById } = require('../controllers/users');
 
-
+router.get('/:productId', prodCtrl.getOne)
 router.post(
     '/create/:userId',
     requireLogin,
@@ -16,6 +16,7 @@ router.post(
 
 
 router.param('userId', userById);
+router.param('productId', prodCtrl.productById);
 
 
 
