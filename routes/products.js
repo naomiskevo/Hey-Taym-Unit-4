@@ -7,6 +7,7 @@ const { userById } = require('../controllers/users');
 router.get('/', prodCtrl.getAll);
 router.get('/categories', prodCtrl.listCat);
 router.get('/:productId', prodCtrl.getOne);
+router.get('/photo/:productId', prodCtrl.photo)
 router.get('/related/:productId', prodCtrl.getRelated);
 
 router.post("/by/search", prodCtrl.listBySearch);

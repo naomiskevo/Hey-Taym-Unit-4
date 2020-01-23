@@ -13,7 +13,16 @@ module.exports = {
     update,
     getRelated,
     listCat,
-    listBySearch
+    listBySearch,
+    photo
+}
+
+function photo(req, res, next) {
+    if (req.product.photo.data) {
+        res.set('Content-Type', req.product.photo.contentType)
+        return res.send(req.product.photo.data);
+    }
+    next();
 }
 
 function listBySearch(req, res) {
