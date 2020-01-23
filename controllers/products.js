@@ -20,7 +20,6 @@ function deleteOne(req, res) {
             });
         }
         res.json({
-            deletedProd,
             message: 'Product has been deleted'
         })
     })
