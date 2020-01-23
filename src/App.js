@@ -1,9 +1,9 @@
 import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
-import Signup from './userPages/SignupPage'
-import Login from './userPages/LoginPage'
+import Signup from './user/Signup/SignupPage'
+import Login from './user/Login/LoginPage'
 import Home from './corePages/HomePage'
-import NavBar from './corePages/NavBar'
+
 
 
 
@@ -11,7 +11,6 @@ import NavBar from './corePages/NavBar'
 const App = () => {
   return (
     <BrowserRouter>
-      <NavBar />
       <Switch>
         <Route exact path='/'  component={Home} />
         <Route exact path='/login'  component={Login} />
