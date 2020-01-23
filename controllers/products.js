@@ -207,7 +207,7 @@ function create(req, res) {
         let product = new Product(fields)
 
         if (files.photo) {
-            if (files.photo.size > 1000000) {
+            if (files.photo.size > 2000000) {
                 return res.status(400).json({
                     err: 'Image should be less than 1mb in size'
                 });

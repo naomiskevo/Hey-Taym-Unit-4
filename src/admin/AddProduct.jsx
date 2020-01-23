@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../corePages/Layout";
 import { isAuthenticated } from "../auth/index";
-import { Link } from "react-router-dom";
 import { createProduct, getCategories } from './apiAdmin'
 
 const AddProduct = () => {
@@ -63,7 +62,7 @@ const AddProduct = () => {
         setValues({ ...values, [name]: value });
     };
 
-    const clickSubmit = event => {
+    const handleSubmit = event => {
         event.preventDefault();
         setValues({ ...values, err: '', loading: true });
 
@@ -86,7 +85,7 @@ const AddProduct = () => {
     };
 
     const newPostForm = () => (
-        <form className="mb-3" onSubmit={clickSubmit}>
+        <form className="mb-3" onSubmit={handleSubmit}>
             <h4>Post Photo</h4>
             <div className="form-group">
                 <label className="btn btn-secondary">
@@ -160,7 +159,7 @@ const AddProduct = () => {
         );
 
     return (
-        <Layout title="Add a new product" description={`G'day ${user.name}, ready to add a new product?`}>
+        <Layout title="Add a new product" description={`Ready to add a new product, ${user.name}?`}>
             <div className="row">
                 <div className="col-md-8 offset-md-2">
                     {showLoading()}
