@@ -22,6 +22,14 @@ router.delete(
     prodCtrl.deleteOne
 );
 
+router.put(
+    '/:productId/:userId',
+    requireLogin,
+    isAdmin,
+    isAuth,
+    prodCtrl.update
+);
+
 
 router.param('userId', userById);
 router.param('productId', prodCtrl.productById);
