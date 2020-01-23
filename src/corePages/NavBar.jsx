@@ -1,18 +1,26 @@
-import React from 'react'
-import {Link, withRouter} from 'react-router-dom'
+import React from 'react';
+import { Link, withRouter } from 'react-router-dom';
 
+const isActive = (history, path) => {
+    if (history.location.pathname === path) {
+        return { color: '#ff9900' }
+    } else {
+        return { color: '#ffffff' }
+    }
 
-const NavBar = () => (
+}
+
+const NavBar = ({history}) => (
     <div>
         <ul className="nav nav-tabs bg-primary">
             <li className="nav-item">
-                <Link className="nav-link" to="/">Home</Link>
+                <Link className="nav-link" style={isActive(history, '/')} to="/">Home</Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link" to="/login">Login</Link>
+                <Link className="nav-link" style={isActive(history, '/login')} to="/login">Login</Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link" to="/signup">Signup</Link>
+                <Link className="nav-link" style={isActive(history, '/signup')} to="/signup">Signup</Link>
             </li>
         </ul>
     </div>
