@@ -4,7 +4,8 @@ const prodCtrl = require('../controllers/products');
 const { requireLogin, isAdmin, isAuth } = require('../controllers/auth');
 const { userById } = require('../controllers/users');
 
-router.get('/:productId', prodCtrl.getOne)
+router.get('/:productId', prodCtrl.getOne);
+
 router.post(
     '/create/:userId',
     requireLogin,
@@ -13,6 +14,13 @@ router.post(
     prodCtrl.create
 );
 
+router.delete(
+    '/:productId/:userId',
+    requireLogin,
+    isAdmin,
+    isAuth,
+    prodCtrl.deleteOne
+);
 
 
 router.param('userId', userById);

@@ -8,6 +8,22 @@ module.exports = {
     create,
     productById,
     getOne,
+    deleteOne,
+}
+
+function deleteOne(req, res) {
+    let product = req.product
+    product.remove((err, deletedProd) => {
+        if (err) {
+            return res.status(400).json({
+                err: errorHandler(err)
+            });
+        }
+        res.json({
+            deletedProd,
+            message: 'Product has been deleted'
+        })
+    })
 }
 
 function getOne(req, res) {
