@@ -6,7 +6,13 @@ const espressJwt = require('express-jwt');
 
 module.exports = {
     signup,
-    login
+    login,
+    logout
+}
+
+function logout(req, res) {
+    res.clearCookie('t')
+    res.json({message: 'Logged Out!'})
 }
 
 function signup(req, res) {

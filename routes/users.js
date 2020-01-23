@@ -5,6 +5,7 @@ const { userSignupValidator} = require('../validator/index');
 
 router.post('/signup', userSignupValidator, userCtrl.signup);
 router.post('/login', userCtrl.login);
+router.get('/logout', userCtrl.logout);
 
 
 
