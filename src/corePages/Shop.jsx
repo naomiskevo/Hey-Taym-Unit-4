@@ -4,11 +4,11 @@ import Card from './Card'
 import Checkbox from './Checkbox'
 import RadioBox from './RadioBox'
 import { getCategories, getFilteredProducts } from './apiCore'
-import {prices} from './FixedPrices'
+import { prices } from './FixedPrices'
 
 const Shop = () => {
     const [myFilters, setMyFilters] = useState({
-        filters: {category: [], price: [] }
+        filters: { category: [], price: [] }
     })
     const [categories, setCategories] = useState([])
     const [err, setError] = useState(false)
@@ -30,8 +30,8 @@ const Shop = () => {
 
     const loadFilteredResults = (newFilters) => {
         // console.log(newFilters)
-        getFilteredProducts(skip, limit, newFilters).then(data =>{
-            if(data.err){
+        getFilteredProducts(skip, limit, newFilters).then(data => {
+            if (data.err) {
                 setError(data.err)
             } else {
                 setFilteredResults(data.data);
@@ -44,11 +44,11 @@ const Shop = () => {
     const loadMore = () => {
         let toSkip = skip + limit
         // console.log(newFilters)
-        getFilteredProducts(toSkip, limit, myFilters.filters).then(data =>{
-            if(data.err){
+        getFilteredProducts(toSkip, limit, myFilters.filters).then(data => {
+            if (data.err) {
                 setError(data.err)
             } else {
-                setFilteredResults([...filteredResults,...data.data]);
+                setFilteredResults([...filteredResults, ...data.data]);
                 setSize(data.size);
                 setSkip(toSkip);
             }
@@ -69,10 +69,10 @@ const Shop = () => {
     }, []);
 
     const handleFilters = (filters, filterBy) => {
-        const newFilters = {...myFilters}
+        const newFilters = { ...myFilters }
         newFilters.filters[filterBy] = filters;
 
-        if(filterBy === "price") {
+        if (filterBy === "price") {
             let priceValues = handlePrice(filters);
             newFilters.filters[filterBy] = priceValues;
         }
@@ -85,15 +85,15 @@ const Shop = () => {
         const data = prices
         let array = []
 
-        for(let key in data) {
-            if(data[key]._id === parseInt(value)) {
+        for (let key in data) {
+            if (data[key]._id === parseInt(value)) {
                 array = data[key].array
             }
         }
         return array;
     }
 
-    
+
 
     return (
         <Layout
@@ -127,10 +127,11 @@ const Shop = () => {
                     <h2 className="mb-4">Products</h2>
                     <div className="row">
                         {filteredResults.map((product, i) => (
-                            <Card key={i} product={product} />
-                        ))}
+                            <div key={i} className="col-4 mb-3">
+                                <Card product={product} />
+                            </div>))}
                     </div>
-                    <hr/>
+                    <hr />
                     {loadMoreButton()}
                 </div>
             </div>

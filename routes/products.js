@@ -30,6 +30,7 @@ router.put(
 );
 
 router.get('/:productId', prodCtrl.getOne);
+// router.get("/search", prodCtrl.listSearch);
 router.get('/', prodCtrl.getAll);
 router.get('/related/:productId', prodCtrl.getRelated);
 router.get('/categories', prodCtrl.listCat);

@@ -31,10 +31,10 @@ function listBySearch(req, res) {
     let limit = req.body.limit ? parseInt(req.body.limit) : 100;
     let skip = parseInt(req.body.skip);
     let findArgs = {};
- 
+
     // console.log(order, sortBy, limit, skip, req.body.filters);
     // console.log("findArgs", findArgs);
- 
+
     for (let key in req.body.filters) {
         if (req.body.filters[key].length > 0) {
             if (key === "price") {
@@ -49,7 +49,7 @@ function listBySearch(req, res) {
             }
         }
     }
- 
+
     Product.find(findArgs)
         .select("-photo")
         .populate("category")
@@ -226,4 +226,27 @@ function create(req, res) {
         })
     })
 };
+
+// exports.listSearch = (req, res) => {
+//     // create query object to hold search value and category value
+//     const query = {};
+//     // assign search value to query.name
+//     if (req.query.search) {
+//         query.name = { $regex: req.query.search, $options: 'i' };
+//         // assigne category value to query.category
+//         if (req.query.category && req.query.category != 'All') {
+//             query.category = req.query.category;
+//         }
+//         // find the product based on query object with 2 properties
+//         // search and category
+//         Product.find(query, (err, products) => {
+//             if (err) {
+//                 return res.status(400).json({
+//                     error: errorHandler(err)
+//                 });
+//             }
+//             res.json(products);
+//         }).select('-photo');
+//     }
+// };
 
