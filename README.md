@@ -1,68 +1,50 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+### The Mission
+My friend makes beautiful art, and I wanted to showcase it for her!
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<a href="https://hey-taym.herokuapp.com">HeyTaym</a>
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Shop Page
+<img src="https://i.imgur.com/uZGQDSb.png"/>
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Home
+<img src="https://i.imgur.com/NbYgORo.png"/>
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### User Stories
+* AAU I should be able to see the artwork in different categories. Ink, Digital, Prints, Merch.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* AAU I should not be able to add art for sale
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* AAU I should be able to login/signup using Token Auth
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* As an administrator I should be able to update the price on the artwork
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+* AAU I should be able to see how much each piece of art costs.
 
-## Learn More
+## Tech
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+ 
+* MongoDB/Mongoose
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* React
 
-### Code Splitting
+* Bootstrap
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+* Express
 
-### Analyzing the Bundle Size
+* Node
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Stretch Goals
 
-### Making a Progressive Web App
+* AAU I should be able to purchase artwork
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+* AAU I should be able to update the number of items in my cart
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+* Notifications for significant events
