@@ -3,6 +3,7 @@ import Layout from './Layout';
 import Card from './Card'
 import {getCategories} from './apiCore'
 import { STATES } from 'mongoose';
+import Checkbox from './Checkbox'
 
 const Shop = () => {
     const [categories, setCategories] = useState([])
@@ -28,7 +29,11 @@ const Shop = () => {
         >
             <div className="row">
                 <div className="col-4">
-                    {JSON.stringify(categories)}
+                    <h4>Filter by categories</h4>
+                    <ul>
+                        <Checkbox categories={categories} />
+                    </ul>
+                    
                 </div>
                 <div className="col-8">
                     right sidebar
