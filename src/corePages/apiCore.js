@@ -9,3 +9,13 @@ export const getProducts = (sortBy) => {
         })
         .catch(err => console.log(err));
 };
+
+export const getCategories = () => {
+    return fetch(`${BASE_URL}/categories`, {
+        method: 'GET'
+    })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+};
