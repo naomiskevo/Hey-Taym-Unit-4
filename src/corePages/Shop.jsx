@@ -2,8 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Layout from './Layout';
 import { getCategories } from './apiCore'
 import Checkbox from './Checkbox'
+import {prices} from './FixedPrices'
 
 const Shop = () => {
+    const [myFilters, setMyFilters] = useState({
+        filters: {category: [], price: [] }
+    })
     const [categories, setCategories] = useState([])
     const [err, setError] = useState(false)
 
@@ -23,8 +27,11 @@ const Shop = () => {
     }, []);
 
     const handleFilters = (filters, filterBy) => {
-        console.log('shop', filters, filterBy);
-    }
+        const newFilters = {...myFilters}
+        newFilters.filters[filterBy] = filters
+        setMyFilters(newFilters)
+        // console.log('shop', filters, filterBy);
+    };
 
     return (
         <Layout
@@ -45,7 +52,7 @@ const Shop = () => {
 
                 </div>
                 <div className="col-8">
-                    right sidebar
+                    {JSON.stringify(myFilters)}
                 </div>
             </div>
 
