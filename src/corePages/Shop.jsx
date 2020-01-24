@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import Layout from './Layout';
-import Card from './Card'
-import {getCategories} from './apiCore'
-import { STATES } from 'mongoose';
+import { getCategories } from './apiCore'
 import Checkbox from './Checkbox'
 
 const Shop = () => {
     const [categories, setCategories] = useState([])
     const [err, setError] = useState(false)
+
+
     const init = () => {
         getCategories().then(data => {
             if (data.err) {
-                setError(data.err)
+                setError(data.err);
             } else {
                 setCategories(data)
             }
@@ -20,9 +20,13 @@ const Shop = () => {
 
     useEffect(() => {
         init();
-    }, [])
+    }, []);
 
-    return(
+    const handleFilters = (filters, filterBy) => {
+        console.log('shop', filters, filterBy);
+    }
+
+    return (
         <Layout
             title="Shop Page"
             description="Look at alllll these pictures"
@@ -31,9 +35,14 @@ const Shop = () => {
                 <div className="col-4">
                     <h4>Filter by categories</h4>
                     <ul>
-                        <Checkbox categories={categories} />
+                        <Checkbox
+                            categories={categories}
+                            handleFilters={filters =>
+                                handleFilters(filters, "category")
+                            }
+                        />
                     </ul>
-                    
+
                 </div>
                 <div className="col-8">
                     right sidebar
