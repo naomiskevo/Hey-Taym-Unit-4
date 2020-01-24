@@ -32,7 +32,7 @@ const Product = (props) => {
         >
             <h2 className="mb-4">{product.name}</h2>
             <div className="row">
-                {product && product.description && <Card product={product} />}
+                {product && product.description && <Card product={product} showViewProductButton={false} />}
             </div>
         </Layout>
 

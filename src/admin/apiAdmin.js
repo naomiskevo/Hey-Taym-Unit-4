@@ -73,7 +73,7 @@ export const createProduct = (userId, token, product) => {
 };
 
 export const getProducts = () => {
-    return fetch(`${BASE_URL}/products?limit=undefined`, {
+    return fetch(`${BASE_URL}products/`, {
         method: 'GET'
     })
         .then(response => {

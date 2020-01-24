@@ -11,6 +11,8 @@ import AdminRoute from './auth/AdminRoute';
 import AdminDashboard from './user/AdminDashboard/AdminDashboard';
 import AddCategory from './admin/AddCategory';
 import AddProduct from './admin/AddProduct';
+import UpdateProduct from './admin/UpdateProduct';
+import ManageProducts from './admin/ManageProducts';
 
 
 
@@ -39,6 +41,14 @@ const App = () => {
         <AdminRoute
           exact path="/create/product"
           component={AddProduct}
+        />
+        <AdminRoute
+          exact path="/admin/product/update/:productId"
+          component={UpdateProduct}
+        />
+        <AdminRoute
+          exact path="/admin/products"
+          component={ManageProducts}
         />
       </Switch>
 
