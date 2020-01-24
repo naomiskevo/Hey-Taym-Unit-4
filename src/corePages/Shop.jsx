@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Layout from './Layout';
 import { getCategories } from './apiCore'
 import Checkbox from './Checkbox'
+import RadioBox from './RadioBox'
 import {prices} from './FixedPrices'
 
 const Shop = () => {
@@ -49,6 +50,16 @@ const Shop = () => {
                             }
                         />
                     </ul>
+
+                    <h4>Filter by price range</h4>
+                    <div>
+                        <RadioBox
+                            prices={prices}
+                            handleFilters={filters =>
+                                handleFilters(filters, "price")
+                            }
+                        />
+                    </div>
 
                 </div>
                 <div className="col-8">
